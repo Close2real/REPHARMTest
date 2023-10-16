@@ -1,0 +1,17 @@
+﻿using System.Text.Json.Serialization;
+
+namespace database
+{
+    public class Doctor
+    {
+        [JsonIgnore]
+        public int Id { get; set; }
+        [JsonPropertyName("id")]
+        public int IdAlternateGetter
+        {
+            get { return Id; }
+        }
+        public string Name { get; set; }
+        public virtual ICollection<Patient> Patients { get; set; }
+    }
+}
